@@ -5,18 +5,18 @@ class Solution
     void merge(vector<int> &arr, int l, int mid, int r)
     {
         vector<int> temp;
-        int index1 = l, index2 = mid + 1;
-        while (index1 <= mid && index2 <= r)
+        int i1 = l, i2 = mid + 1;
+        while (i1 <= mid && i2 <= r)
         {
-            if (arr[index1] < arr[index2])
-                temp.push_back(arr[index1++]);
+            if (arr[i1] < arr[i2])
+                temp.push_back(arr[i1++]);
             else
-                temp.push_back(arr[index2++]);
+                temp.push_back(arr[i2++]);
         }
-        for (; index1 <= mid; index1++)
-            temp.push_back(arr[index1++]);
-        for (; index2 <= r; index2++)
-            temp.push_back(arr[index2++]);
+        for (; i1 <= mid; i1++)
+            temp.push_back(arr[i1++]);
+        for (; i2 <= r; i2++)
+            temp.push_back(arr[i2++]);
         for (int i = 0; i < temp.size(); i++)
             arr[l++] = temp[i];
     }

@@ -1,0 +1,24 @@
+// LC: 1800
+#include <iostream>
+using namespace std;
+class Solution
+{
+public:
+    int maxAscendingSum(vector<int> &nums)
+    {
+        int sum = nums[0], ans = sum;
+        for (int i = 1; i < nums.size(); i++)
+        {
+            if (nums[i] > nums[i - 1])
+            {
+                sum += nums[i];
+            }
+            else
+            {
+                sum = nums[i];
+            }
+            ans = max(ans, sum);
+        }
+        return max(ans, sum);
+    }
+};
